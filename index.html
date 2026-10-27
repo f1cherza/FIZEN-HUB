@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f7f9">
+  <meta name="description" content="FIZEN HUB — личное рабочее пространство">
+  <title>FIZEN HUB</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <span class="brand-mark">F</span>
+      <div>
+        <b>FIZEN HUB</b>
+        <small>personal workspace</small>
+      </div>
+    </div>
+
+    <nav id="nav">
+      <button class="nav-item active" data-view="dashboard"><span>⌂</span> Обзор</button>
+      <button class="nav-item" data-view="tasks"><span>✓</span> Задачи <i id="taskBadge">0</i></button>
+      <button class="nav-item" data-view="projects"><span>▦</span> Проекты</button>
+      <button class="nav-item" data-view="notes"><span>▤</span> Заметки</button>
+      <button class="nav-item" data-view="calendar"><span>▦</span> Планировщик</button>
+
+      <div class="nav-label">ИНСТРУМЕНТЫ</div>
+      <button class="nav-item" data-view="tools"><span>⌘</span> Dev Tools</button>
+      <button class="nav-item" data-view="settings"><span>⚙</span> Настройки и данные</button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="status-dot"></div>
+      <span>Работает локально</span>
+      <small id="saveState">Сохранено</small>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="mobile-menu icon-btn" id="menuBtn" aria-label="Меню">☰</button>
+
+      <div class="breadcrumb">
+        Workspace <span>/</span> <b id="pageName">Обзор</b>
+      </div>
+
+      <div class="top-actions">
+        <label class="search">
+          <span>⌕</span>
+          <input id="globalSearch" placeholder="Поиск по HUB…" autocomplete="off">
+          <kbd>Ctrl K</kbd>
+        </label>
+        <button class="icon-btn" id="themeBtn" title="Переключить тему" aria-label="Переключить тему">◐</button>
+      </div>
+    </header>
+
+    <div id="app" class="content"></div>
+
+    <footer>
+      FIZEN HUB <span>·</span> локальное рабочее пространство
+      <span>·</span> <span id="footerDate"></span>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <dialog id="modal">
+    <form method="dialog" id="modalForm">
+      <div class="modal-head">
+        <h2 id="modalTitle">Новый элемент</h2>
+        <button class="icon-btn" value="cancel" aria-label="Закрыть">×</button>
+      </div>
+
+      <div id="modalBody"></div>
+
+      <div class="modal-actions">
+        <button class="btn" value="cancel">Отмена</button>
+        <button class="btn primary" id="modalSave" value="default">Сохранить</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
